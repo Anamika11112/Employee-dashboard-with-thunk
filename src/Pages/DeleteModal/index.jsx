@@ -13,7 +13,6 @@ function DeleteModal({
   const dispatch = useDispatch();
   const [deleteLoader, setDeleteLoader] = useState(false);
   useEffect(() => {
-    console.log(deleteLoader);
   }, [deleteLoader]);
 
   const handleDeleteConfirm = () => {

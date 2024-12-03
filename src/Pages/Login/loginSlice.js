@@ -19,7 +19,6 @@ export const userLogin =
         navigateTo();
       }
     } catch (error) {
-      console.log(error.response);
       toast.error(error.response.data.message);
     } finally {
       setLoginLoader(false);

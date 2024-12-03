@@ -64,9 +64,7 @@ export const validateField = (name, value, setErrorState) => {
       if (!value.trim()) errorMessage = "Please enter experience in yr";
       else if (value < 0) errorMessage = "Enter a valid experience";
       break;
-
     default:
-      errorMessage = "Invalid";
       break;
   }
 
@@ -76,13 +74,12 @@ export const validateField = (name, value, setErrorState) => {
   }));
   return errorMessage;
 };
+
 export const validateForm = (employeeRegDetails, setEmployeeRegError) => {
   let isValid = true;
-
   Object.entries(employeeRegDetails).forEach(([key, value]) => {
     const errorMessage = validateField(key, value, setEmployeeRegError);
     if (errorMessage) isValid = false;
   });
-
   return isValid;
 };

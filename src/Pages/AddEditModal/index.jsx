@@ -67,7 +67,7 @@ function AddEditModal({
         phoneNumber: singleUser.phoneNumber,
       });
     }
-  }, [singleUser]);
+  }, [singleUser,empEditId]);
 
   useEffect(() => {
     return () => {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 import { dynamicInputHandler } from "../../Helpers/Utilities";
 import { useDispatch } from "react-redux";
 import { userLogin } from "./loginSlice";
@@ -62,7 +61,6 @@ function Login() {
       >
         Login
       </Button>
-      <Toaster />
     </form>
   );
 }

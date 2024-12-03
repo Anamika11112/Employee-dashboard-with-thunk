@@ -15,7 +15,7 @@ function DashboardMainData({
   const employeeList = useSelector((state) => state.dashboard.employeeList);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  console.log(employeeList);
+  
   useEffect(() => {
     setFilteredEmployees(employeeList);
   }, [employeeList]);
@@ -107,5 +107,4 @@ function DashboardMainData({
     </div>
   );
 }
-
 export default DashboardMainData;

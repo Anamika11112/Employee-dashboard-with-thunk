@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Toaster } from "react-hot-toast";
 import { dynamicInputHandler } from "../../Helpers/Utilities";
 import { userRegistrationValidtation } from "./userRegValidation";
 import { userSignUp } from "./userRegistrationSlice";
@@ -36,7 +35,6 @@ function Registration() {
       dispatch(userSignUp(signUpData, () => navigate("/"), setSighnUpLoader));
     }
   };
-
   return (
     <form className="UserRegistrationForm" onSubmit={handleUserRegistration}>
       <h1>REGISTER</h1>
@@ -76,7 +74,6 @@ function Registration() {
       >
         Register
       </Button>
-      <Toaster />
     </form>
   );
 }

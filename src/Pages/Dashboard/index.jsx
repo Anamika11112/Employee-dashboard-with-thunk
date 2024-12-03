@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEmployees } from "./dashboardSlice";
+import DashboardEmpty from "./DashboardEmpty/index.jsx";
 import DashboardMainData from "./DashboardMainData/index.jsx";
+import DeleteModal from "../DeleteModal";
+import AddEditModal from "../AddEditModal";
 import Button from "../../Components/Button";
 import Modal from "../../Components/Modal/index.jsx";
-import AddEditModal from "../AddEditModal";
-import DeleteModal from "../DeleteModal";
 import Loader from "../../Components/Loader/index.jsx";
 import "./index.css";
 
@@ -20,6 +20,7 @@ function Dashboard() {
   const [employeeIdToDelete, setEmployeeIdToDelete] = useState("");
   const [empTodelete, setEmpToDelete] = useState("");
   const [empEditId, setEmpEditId] = useState("");
+  const employeeList = useSelector((state) => state.dashboard.employeeList);
   useEffect(() => {
     dispatch(fetchEmployees(setEmployeeTableLoader));
   }, []);
@@ -62,7 +63,6 @@ function Dashboard() {
           />
         </Modal>
       )}
-
       {addEditModal && (
         <Modal
           modalClassName="addEditModal"
@@ -80,19 +80,16 @@ function Dashboard() {
       )}
       {employeeTableLoader ? (
         <Loader />
-      ) : (
+      ) : ( employeeList.length !== 0 ?
         <DashboardMainData
           setAddEditModal={setAddEditModal}
           setDeleteModal={setDeleteModal}
           setEmpToDelete={setEmpToDelete}
           setEmployeeIdToDelete={setEmployeeIdToDelete}
           setEmpEditId= {setEmpEditId}
-        />
+        /> : <DashboardEmpty/>
       )}
-
-      <Toaster />
     </div>
   );
 }
-
 export default Dashboard;
