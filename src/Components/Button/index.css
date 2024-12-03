@@ -1,0 +1,41 @@
+button{
+    padding: 10px 20px;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 8px 0 8px 0;
+    border: none;
+}
+.primary_white_button{
+    width: 200px;
+    height: 57px;
+    color: black;
+    background-color: #ffffff;
+}
+.primary_white_button a{
+    color: black;
+}
+.primary_blue_button{
+    width: 200px;
+    height: 57px;
+    color: #ffffff;
+    background-color: #0084BB;
+}
+.secondary_button{
+    width: 180px;
+    height: 48px;
+    color: #ffffff;
+    background-color: #2FAAE3;
+}
+.secondary_normal_button{
+    width: 180px;
+    height: 48px;
+    color: #ffffff;
+    border-radius: 4px;
+    background-color: #2FAAE3;
+}
+.tertiary_button{
+    width: 110px;
+    height: 48px;
+    color: #ffffff;
+    background-color: #2FAAE3;
+}

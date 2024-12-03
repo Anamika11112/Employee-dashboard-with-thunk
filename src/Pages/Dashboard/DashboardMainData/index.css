@@ -1,0 +1,41 @@
+.dashboard {
+    padding: 20px 40px;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+}
+.emp_search_row{
+    display: flex;
+    align-items: center;
+    width: 500px;
+    align-self: flex-end;
+}
+.emp_search_row .input_container .inputError{
+    display: none;
+}
+.emp_search_row .input_container label{
+    display: none;
+}
+.employee_table{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); 
+}
+.employee_table th, .employee_table td {
+    padding: 10px 12px;
+}
+.employee_table tr {
+    height: 50px;
+}
+.dashboard_table_header{
+    background-color: #2FAAE3;
+    text-align: left;
+    height: 40px;
+    color: #ffffff;
+}
+.action_controls{
+    font-weight: 550;
+    color: #2FAAE3;
+    cursor: pointer;
+}

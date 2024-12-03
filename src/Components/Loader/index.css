@@ -1,0 +1,24 @@
+.loader_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+.loader{
+    width:100px;
+    height:100px;
+    border: 10px solid  #808080;
+    border-top: 10px solid  #00597f;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+.small_loader{
+    width:30px;
+    height:30px;
+    border: 5px solid  #dfdfdf;
+    border-top: 5px solid  #00597f;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
