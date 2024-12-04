@@ -5,19 +5,19 @@ export const loginValidation = (setloginErrors, loginCredentials) => {
   const { email, password } = loginCredentials;
   let isValid = true;
   if (!email) {
-    setError("emailError", setloginErrors, "Email is required!");
+    setError("email", setloginErrors, "Email is required!");
     isValid = false;
   } else if (!emailRegex.test(email)) {
-    setError("emailError", setloginErrors, "Enter valid Email");
+    setError("email", setloginErrors, "Enter valid Email");
     isValid = false;
   } else {
-    setError("emailError", setloginErrors, "");
+    setError("email", setloginErrors, "");
   }
   if (!password) {
-    setError("passwordError", setloginErrors, "Password is required!");
+    setError("password", setloginErrors, "Password is required!");
     isValid = false;
   } else {
-    setError("passwordError", setloginErrors, "");
+    setError("password", setloginErrors, "");
   }
   return isValid;
 };

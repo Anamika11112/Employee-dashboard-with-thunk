@@ -1,6 +1,5 @@
 import React from 'react'
 import './index.css'
-
 function NomatchRoute() {
   return (
     <div className="nomatch_route_container">
@@ -8,5 +7,4 @@ function NomatchRoute() {
     </div>
   )
 }
-
 export default NomatchRoute

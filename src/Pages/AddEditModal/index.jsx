@@ -21,9 +21,7 @@ function AddEditModal({
 }) {
   const dispatch = useDispatch();
   const singleUser = useSelector((state) => state.addOrEdit.employee);
-  const addOrEditLoader = useSelector(
-    (state) => state.addOrEdit.addOrEditLoading
-  );
+  const [addOrEditLoader,setAddOrEditLoader]= useState(false)
   const [editLoader, setEditLoader] = useState(false);
   const [employeeRegDetails, setEmployeeRegDetails] = useState({
     fname: "",
@@ -56,7 +54,6 @@ function AddEditModal({
   useEffect(() => {
     if (empEditId && singleUser) {
       setEmployeeRegDetails({
-        employeeId: singleUser.employeeId,
         fname: singleUser.fname,
         lname: singleUser.lname,
         email: singleUser.email,
@@ -89,9 +86,10 @@ function AddEditModal({
       if (empEditId) {
         dispatch(
           updateEmployeeEdits(
-            employeeRegDetails,
+            { ...employeeRegDetails, employeeId :empEditId },
             setEmployeeTableLoader,
-            setAddEditModal
+            setAddEditModal,
+            setAddOrEditLoader
           )
         );
       } else {
@@ -99,7 +97,8 @@ function AddEditModal({
           registerEmployee(
             employeeRegDetails,
             setEmployeeTableLoader,
-            setAddEditModal
+            setAddEditModal,
+            setAddOrEditLoader
           )
         );
       }
@@ -214,4 +213,3 @@ function AddEditModal({
   );
 }
 export default AddEditModal;
-

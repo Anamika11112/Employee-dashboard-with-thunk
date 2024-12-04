@@ -64,7 +64,9 @@ export const validateField = (name, value, setErrorState) => {
       if (!value.trim()) errorMessage = "Please enter experience in yr";
       else if (value < 0) errorMessage = "Enter a valid experience";
       break;
+
     default:
+      errorMessage = "Invalid Field";
       break;
   }
 

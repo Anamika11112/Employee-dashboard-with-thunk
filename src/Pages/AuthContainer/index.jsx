@@ -42,5 +42,4 @@ function AuthContainer() {
     </div>
   );
 }
-
 export default AuthContainer;

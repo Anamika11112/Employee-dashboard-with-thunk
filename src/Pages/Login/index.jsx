@@ -15,10 +15,10 @@ function Login() {
     password: "",
   });
   const [loginErrors, setloginErrors] = useState({
-    emailError: "",
-    passwordError: "",
+    email: "",
+    password: "",
   });
-  const { emailError, passwordError } = loginErrors;
+  const { email, password } = loginErrors;
   const [loginLoader, setLoginLoader] = useState(false);
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn")) {
@@ -40,7 +40,7 @@ function Login() {
         label="Email"
         name="email"
         disabled={loginLoader}
-        errorMessage={emailError}
+        errorMessage={email}
         onChange={(event) => dynamicInputHandler(event, setLoginCredentials)}
       />
       <div className="password_group">
@@ -49,12 +49,12 @@ function Login() {
           label="Password"
           name="password"
           disabled={loginLoader}
-          errorMessage={passwordError}
+          errorMessage={password}
           onChange={(event) => dynamicInputHandler(event, setLoginCredentials)}
         />
       </div>
       <Button
-       type="submit"
+        type="submit"
         className="primary_blue_button"
         loading={loginLoader}
         loaderClassName="small_loader"

@@ -15,7 +15,7 @@ function DashboardMainData({
   const employeeList = useSelector((state) => state.dashboard.employeeList);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  
+
   useEffect(() => {
     setFilteredEmployees(employeeList);
   }, [employeeList]);
@@ -45,7 +45,7 @@ function DashboardMainData({
         email.includes(query)
       );
     });
-    if (filtered.length <= 0) {
+    if (!filtered.length) {
       toast.error("No Search results");
     }
     setFilteredEmployees(filtered);

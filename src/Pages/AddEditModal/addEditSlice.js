@@ -5,9 +5,9 @@ import { baseUrl } from "../../Helpers/Constants/index";
 import { fetchEmployees } from "../Dashboard/dashboardSlice";
 
 export const registerEmployee =
-  (data, setEmployeeTableLoader, setAddEditModal) => async (dispatch) => {
+  (data, setEmployeeTableLoader, setAddEditModal,setAddOrEditLoader) => async (dispatch) => {
     try {
-      dispatch(addOrEditLoading(true));
+      setAddOrEditLoader(true)
       const token = localStorage.getItem("token");
       const response = await axios.post(`${baseUrl}/employee/register`, data, {
         headers: {
@@ -23,14 +23,14 @@ export const registerEmployee =
     } catch (error) {
       toast.error(error.response.data.message);
     }finally{
-      dispatch(addOrEditLoading(false));
+      setAddOrEditLoader(false)
     }
 };
 
 export const updateEmployeeEdits =
-  (data, setAddEditModal, setEmployeeTableLoader) => async (dispatch) => {
+  (data, setAddEditModal, setEmployeeTableLoader,setAddOrEditLoader) => async (dispatch) => {
     try {
-      dispatch(addOrEditLoading(true));
+      setAddOrEditLoader(true)
       const token = localStorage.getItem("token");
       const response = await axios.put(`${baseUrl}/employee/edit`, data, {
         headers: {
@@ -46,7 +46,7 @@ export const updateEmployeeEdits =
     } catch (error) {
       toast.error(error.response.data.message);
     } finally {
-      dispatch(addOrEditLoading(false));
+      setAddOrEditLoader(false)
     }
 };
 
@@ -76,12 +76,8 @@ const addEditSlice = createSlice({
   name: "addEdit",
   initialState: {
     employee: {},
-    addOrEditLoading: false,
   },
   reducers: {
-    addOrEditLoading(state, action) {
-      state.addOrEditLoading = action.payload;
-    },
     singleEmployeeFetchSuccess(state, action) {
       state.employee = action.payload;
     },
@@ -91,7 +87,6 @@ const addEditSlice = createSlice({
   },
 });
 export const {
-  addOrEditLoading,
   singleEmployeeFetchSuccess,
   removeSingleEmployee,
 } = addEditSlice.actions;

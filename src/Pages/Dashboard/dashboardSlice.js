@@ -21,11 +21,12 @@ export const fetchEmployees = (setEmployeeTableLoader) => async (dispatch) => {
     setEmployeeTableLoader(false);
   }
 };
+
 export const deleteEmployee =
   (id, setDeleteLoader, setDeleteModal, setEmployeeTableLoader) =>
   async (dispatch) => {
     try {
-      setDeleteLoader(true)
+      setDeleteLoader(true);
       const token = localStorage.getItem("token");
       const response = await axios.delete(`${baseUrl}/employee/delete/`, {
         headers: {

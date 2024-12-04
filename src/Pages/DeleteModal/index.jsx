@@ -12,9 +12,7 @@ function DeleteModal({
 }) {
   const dispatch = useDispatch();
   const [deleteLoader, setDeleteLoader] = useState(false);
-  useEffect(() => {
-  }, [deleteLoader]);
-
+  
   const handleDeleteConfirm = () => {
     dispatch(
       deleteEmployee(
@@ -48,5 +46,4 @@ function DeleteModal({
     </div>
   );
 }
-
 export default DeleteModal;

@@ -4,7 +4,6 @@ import Dashboard from '../Pages/Dashboard'
 import NomatchRoute from './NomatchRoute'
 import AuthContainer from '../Pages/AuthContainer'
 import ProtectedRoute from './ProtectedRoute'
-
 function Routing() {
   return (
     <Routes>

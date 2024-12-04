@@ -10,17 +10,16 @@ import Button from "../../Components/Button";
 import Modal from "../../Components/Modal/index.jsx";
 import Loader from "../../Components/Loader/index.jsx";
 import "./index.css";
-
 function Dashboard() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const employeeList = useSelector((state) => state.dashboard.employeeList);
   const [employeeTableLoader, setEmployeeTableLoader] = useState(false);
   const [addEditModal, setAddEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [employeeIdToDelete, setEmployeeIdToDelete] = useState("");
   const [empTodelete, setEmpToDelete] = useState("");
   const [empEditId, setEmpEditId] = useState("");
-  const employeeList = useSelector((state) => state.dashboard.employeeList);
   useEffect(() => {
     dispatch(fetchEmployees(setEmployeeTableLoader));
   }, []);
@@ -74,7 +73,6 @@ function Dashboard() {
             setEmployeeTableLoader={setEmployeeTableLoader}
             empEditId={empEditId}
             setEmpEditId={setEmpEditId}
-         
           />
         </Modal>
       )}

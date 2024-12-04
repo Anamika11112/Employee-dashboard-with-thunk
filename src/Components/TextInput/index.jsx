@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 import "./index.css";
-
 function TextInput({
   label,
   type = "text",
@@ -54,5 +53,4 @@ function TextInput({
     </div>
   );
 }
-
 export default TextInput;
