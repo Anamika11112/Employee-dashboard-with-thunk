@@ -16,7 +16,8 @@ export const fetchEmployees = (setEmployeeTableLoader) => async (dispatch) => {
       dispatch(employeeListFetchSuccess(response.data.data.list));
     }
   } catch (error) {
-    toast.error(error.message);
+    if (error.response) toast.error(error.response.data.message);
+    else toast.error(error.message);
   } finally {
     setEmployeeTableLoader(false);
   }
@@ -43,7 +44,8 @@ export const deleteEmployee =
         dispatch(fetchEmployees(setEmployeeTableLoader));
       }
     } catch (error) {
-      toast.error(error.response.data.message);
+      if (error.response) toast.error(error.response.data.message);
+      else toast.error(error.message);
     } finally {
       setDeleteLoader(false);
     }

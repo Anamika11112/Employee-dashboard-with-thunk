@@ -5,9 +5,10 @@ import { baseUrl } from "../../Helpers/Constants/index";
 import { fetchEmployees } from "../Dashboard/dashboardSlice";
 
 export const registerEmployee =
-  (data, setEmployeeTableLoader, setAddEditModal,setAddOrEditLoader) => async (dispatch) => {
+  (data, setEmployeeTableLoader, setAddEditModal, setAddOrEditLoader) =>
+  async (dispatch) => {
     try {
-      setAddOrEditLoader(true)
+      setAddOrEditLoader(true);
       const token = localStorage.getItem("token");
       const response = await axios.post(`${baseUrl}/employee/register`, data, {
         headers: {
@@ -21,16 +22,18 @@ export const registerEmployee =
         toast.success(response.data.message);
       }
     } catch (error) {
-      toast.error(error.response.data.message);
-    }finally{
-      setAddOrEditLoader(false)
+      if (error.response) toast.error(error.response.data.message);
+      else toast.error(error.message);
+    } finally {
+      setAddOrEditLoader(false);
     }
-};
+  };
 
 export const updateEmployeeEdits =
-  (data, setAddEditModal, setEmployeeTableLoader,setAddOrEditLoader) => async (dispatch) => {
+  (data, setAddEditModal, setEmployeeTableLoader, setAddOrEditLoader) =>
+  async (dispatch) => {
     try {
-      setAddOrEditLoader(true)
+      setAddOrEditLoader(true);
       const token = localStorage.getItem("token");
       const response = await axios.put(`${baseUrl}/employee/edit`, data, {
         headers: {
@@ -44,11 +47,12 @@ export const updateEmployeeEdits =
         toast.success(response.data.message);
       }
     } catch (error) {
-      toast.error(error.response.data.message);
+      if (error.response) toast.error(error.response.data.message);
+      else toast.error(error.message);
     } finally {
-      setAddOrEditLoader(false)
+      setAddOrEditLoader(false);
     }
-};
+  };
 
 export const fetchSingleEmployee = (id, setEditLoader) => async (dispatch) => {
   try {
@@ -66,7 +70,8 @@ export const fetchSingleEmployee = (id, setEditLoader) => async (dispatch) => {
       dispatch(singleEmployeeFetchSuccess(response.data.data.employee));
     }
   } catch (error) {
-    toast.error(error.response.data.message);
+    if (error.response) toast.error(error.response.data.message);
+    else toast.error(error.message);
   } finally {
     setEditLoader(false);
   }
@@ -86,8 +91,6 @@ const addEditSlice = createSlice({
     },
   },
 });
-export const {
-  singleEmployeeFetchSuccess,
-  removeSingleEmployee,
-} = addEditSlice.actions;
+export const { singleEmployeeFetchSuccess, removeSingleEmployee } =
+  addEditSlice.actions;
 export default addEditSlice.reducer;

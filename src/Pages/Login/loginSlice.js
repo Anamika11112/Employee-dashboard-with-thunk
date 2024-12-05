@@ -19,7 +19,8 @@ export const userLogin =
         navigateTo();
       }
     } catch (error) {
-      toast.error(error.response.data.message);
+      if (error.response) toast.error(error.response.data.message);
+      else toast.error(error.message);
     } finally {
       setLoginLoader(false);
     }
