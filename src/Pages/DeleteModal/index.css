@@ -1,0 +1,16 @@
+.confirm_delete{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.confirm_delete h1{
+    font-weight: 400;
+    color: #2FAAE3;
+}
+.deleteButtongroup{
+    display: flex;
+    gap: 15px;
+}

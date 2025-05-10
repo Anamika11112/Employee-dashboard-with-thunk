@@ -1,0 +1,38 @@
+.add_edit_Form{
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.add_edit_Form h1{
+    font-weight: 500;
+    color: #2FAAE3;
+    margin-bottom: 40px;
+}
+.email_row,.name_row, .designation_row{
+    display: flex;
+    gap: 15px;
+}
+.name_row .input_container,
+.designation_row .input_container,
+.email_row .input_container {
+    width: 50%;  
+}
+.email_row .input_container label,
+.name_row .input_container label,
+.designation_row .input_container label { 
+    font-weight: 500;
+}
+.dates_section, .experience_phone_row {
+    width: 50%; 
+    display: flex;
+    gap: 20px;
+}
+.form_button_group{
+    width: 40%;
+    gap: 20px;
+    margin-bottom: 40px;
+    display: flex;
+}

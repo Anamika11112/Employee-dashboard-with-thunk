@@ -1,0 +1,9 @@
+.empty_dashboard{
+   height: 300px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.empty_dashboard h1{
+    color: #2FAAE3;
+}

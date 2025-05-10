@@ -1,0 +1,16 @@
+.UserRegistrationForm{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.UserRegistrationForm .primary_blue_button{
+    margin-top: 20px;
+}
+.password_group{
+    display: flex;
+    gap: 29px;
+    width: 100%;
+    margin-bottom: 20px;
+}
